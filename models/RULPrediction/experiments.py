@@ -1,5 +1,7 @@
-import dataset.cmapss as cmapss
-import dataset.xjtu as xjtu
+import sys
+sys.path.append(".")
+from dataset import cmapss as cmapss
+from dataset import xjtu as xjtu
 import models.RULPrediction as rul
 from dataset.utils import compute_metrics
 
