@@ -30,11 +30,13 @@ def compute_metrics(path):
     out = np.load(path+r"/model_test_output_part1.npy")
     label = np.load(path+r"/model_test_labels_part1.npy")
     mse = me.mean_squared_error(out, label)
+    rmse = np.sqrt(mse)
     mape = me.mean_absolute_percentage_error(out, label)
     print("MSE:{}".format(mse))
+    print("RMSE:{}".format(rmse))
     print("MAPE:{}".format(mape))
     print("R2:{}".format(me.r2_score(out, label)))
-    return (out, label), mse, mape
+    return (out, label), mse, rmse, mape
 
 
 def count_parameters(model):
